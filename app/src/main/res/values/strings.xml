@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">LittleChef</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Sandwich">Turkey Sandwich</string>
+    <string name="Appname">Little Chef</string>
+    <string-array name="ingredients">
+        <item>2 slices White Bread</item>
+        <item>1 tspn mayo</item>
+        <item>1 tspn mustard</item>
+        <item>1/4 cup lettuce</item>
+        <item>sliced turkey</item>
+        <item>1 tomato</item>
+    </string-array>
+    <string name="ingredientsTitle">Ingredients</string>
+    <string name="recipe">First, lay two slices of white bread flat. if you wish, toast to preference using a toaster.
+        Second, spread the mayonnaise on one slice of bread, and then the mustard. this will be your bottom slice.
+        Third, slice your tomato with the chefs knife. once done, place the lettuce over the mayo and mustard, followed by the freshly sliced tomato.
+        lastly, layer slices of prepackaged turkery over the rest of your ingredients. top it off with the other slice of bread and serve.
+    </string>
+</resources>

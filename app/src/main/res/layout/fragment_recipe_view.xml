@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecipeViewFragment">
+
+
+    <TextView
+        android:id="@+id/RecipeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimary"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/Sandwich"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/ingredTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/ingredientsTitle"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/foodlist"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="4dp"
+        android:entries="@array/ingredients" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RecipeText"
+        android:text="@string/recipe"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>
