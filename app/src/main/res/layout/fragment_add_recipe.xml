@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.recipe.AddRecipeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/recipe_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Recipe_Name_Text"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Recipe_Name_Hint"
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/prep_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Prep_Time_Text"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/prep_time_input"
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/Prep_Minutes_Text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Minutes_Text"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cook_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cook_Time_Text"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/cook_time_input"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/Cook_Minutes_Text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Minutes_Text"
+                    android:textColor="#000000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/servings_text"
+                    android:layout_width="89dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Servings_Text"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/servings_input"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ingredients_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Ingredients_Text"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/Ingredients_Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/Ingredient_Hint"
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/Steps_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Ingredients_Text"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                tools:text="@string/Steps_Text" />
+
+            <EditText
+                android:id="@+id/Steps_Input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/Steps_Hint"
+                android:inputType="textMultiLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/Cancel_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Cancel_Text" />
+
+                <Button
+                    android:id="@+id/Submit_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Submit_Text" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
