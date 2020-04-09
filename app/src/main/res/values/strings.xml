@@ -19,4 +19,30 @@
         Third, slice your tomato with the chefs knife. once done, place the lettuce over the mayo and mustard, followed by the freshly sliced tomato.
         lastly, layer slices of prepackaged turkery over the rest of your ingredients. top it off with the other slice of bread and serve.
     </string>
+
+
+    /* Text For fragment_add_recipe.xml
+    <string name="Recipe_Name_Text">Recipe Name:</string>
+    <string name="Recipe_Name_Hint">Ex. Turkey Burgers</string>
+    <string name="Prep_Time_Text">Prep. Time:</string>
+    <string name="Minutes_Text">minutes</string>
+    <string name="Cook_Time_Text">Cook Time:</string>
+    <string name="Servings_Text">Servings:</string>
+    <string name="Ingredients_Text">Ingredients:</string>
+    <string name="Ingredient_Hint">2 Pounds Of Ground Turkey\n
+        1 1/2 Cups Of Fresh Bread Crumbs\n
+        1 Egg\n
+        1/4 Large Onion, Finely Chopped\n
+        Salt and Pepper To Taste\n
+        ...
+    </string>
+    <string name="Steps_Text">Steps:</string>
+    <string name="Steps_Hint">1. Preheat an outdoor grill for medium-heat and lightly oil the grate.\n
+        2. Combine turkey, bread crumbs, spinach, onion, egg, salt, and black pepper together in a bowl.\n
+        3. Form the contents of the bowl into patties.\n
+        4. Cook patties on preheated grill until no longer pink in the center and the juices run clear, 5 to 10 minutes per side.\n
+    </string>
+    <string name="Cancel_Text">Cancel</string>
+    <string name="Submit_Text">Submit</string>
+
 </resources>
