@@ -21,6 +21,7 @@ import java.util.List;
 public class    MainActivity extends FragmentActivity {
 
     Button addButton;
+    Button listButton;
     DatabaseReference RecipeDatabase;
     DatabaseReference IngredientsDatabase;
     DatabaseReference StepsDatabase;
@@ -31,6 +32,8 @@ public class    MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         addButton = (Button) findViewById(R.id.addButton);
+        listButton = (Button) findViewById(R.id.listButton);
+
         RecipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
         IngredientsDatabase = FirebaseDatabase.getInstance().getReference("ingredients");
         StepsDatabase = FirebaseDatabase.getInstance().getReference("steps");
@@ -42,11 +45,17 @@ public class    MainActivity extends FragmentActivity {
         ft.add(R.id.Frag_container, frag);
         ft.commit();
 
+        listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
+                startActivity(intent);
+            }
+        });
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, AddRecipeActivity.class);
-//                startActivity(intent);
                 addRecipe();
             }
         });

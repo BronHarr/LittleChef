@@ -11,6 +11,7 @@ public class Recipes {
     List<String> ingredients;
     List<String> steps;
 
+    public Recipes() {}
 
     public Recipes(String id, String name, int time, List<String> ingredients, List<String> steps) {
         this.id = id;

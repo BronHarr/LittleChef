@@ -25,8 +25,15 @@
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="match_parent"
+        android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Add a recipe" />
+
+    <Button
+        android:id="@+id/listButton"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="go to recipe list" />
 </LinearLayout>
