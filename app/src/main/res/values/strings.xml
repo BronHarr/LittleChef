@@ -45,4 +45,10 @@
     <string name="Cancel_Text">Cancel</string>
     <string name="Submit_Text">Submit</string>
 
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="App_Title">Little Chef</string>
+    <string name="Photo_Descrip">App Logo</string>
+
 </resources>
