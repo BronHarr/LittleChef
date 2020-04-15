@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import edu.fsu.cs.littlechef.R;
+
 
 public class AddRecipeFragment extends Fragment{
 

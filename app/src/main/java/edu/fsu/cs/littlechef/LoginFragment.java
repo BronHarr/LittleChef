@@ -16,8 +16,9 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class LoginFragment extends Fragment {
-    private EditText user, pass;
+    private EditText email, pass;
     private Button login_button;
+    private Button register_button;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -34,20 +35,20 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.login, container, false);
         login_button = rootView.findViewById(R.id.login);
-        user = rootView.findViewById(R.id.username);
+        email = rootView.findViewById(R.id.email);
         pass = rootView.findViewById(R.id.password);
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isEmpty(user)){
-                    user.setError("Must Enter a Username");
+                if (isEmpty(email)){
+                    email.setError("Must Enter a email");
                 }
                 if(isEmpty(pass)){
                     pass.setError("Must Enter a password");
                 }
 
-                String username = user.getText().toString();
+                String emailId = email.getText().toString();
                 String password = pass.getText().toString();
 
             }

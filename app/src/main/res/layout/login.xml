@@ -15,7 +15,7 @@
         android:layout_marginStart="47dp"
         android:layout_marginLeft="47dp"
         android:layout_marginTop="179dp"
-        android:text= "@string/Username"/>
+        android:text="@string/Email" />
 
     <TextView
         android:id="@+id/textView2"
@@ -30,17 +30,17 @@
         android:text="@string/Password" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="166dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="168dp"
         android:layout_toEndOf="@+id/textView1"
         android:layout_toRightOf="@+id/textView1"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress"
+        android:ems="10" />
 
     <EditText
         android:id="@+id/password"
@@ -63,9 +63,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="567dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginRight="176dp"
+        android:layout_marginTop="566dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
         android:text="@string/Login" />
 
     <TextView
@@ -100,5 +100,17 @@
         android:layout_marginTop="84dp"
         app:srcCompat="@drawable/kisspng_chef_s_uniform_hat_royalty_free_vector_chef_hat_5ad9f67427c7b5_449037551524233844163"
         android:contentDescription="@string/Photo_Descrip" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="566dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginRight="232dp"
+        android:text="@string/Register" />
 
 </RelativeLayout>
