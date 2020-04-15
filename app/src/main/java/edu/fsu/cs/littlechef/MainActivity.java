@@ -63,16 +63,19 @@ public class    MainActivity extends FragmentActivity {
 
 
     private void addRecipe() {
-        String name = "Turkey Sandwhich";
-        int time = 15;
+        String name = "Perfect Pot of Rice";
+        int time = 45;
         List<String> ingredients = new ArrayList<String>();
-        ingredients.add("2 slices of bread.");
-        ingredients.add("1 tspn of mayo.");
+        ingredients.add("1 cup of rice");
+        ingredients.add("Kosher Salt");
 
         List<String> steps = new ArrayList<String>();
-        steps.add("Lay down bread.");
-        steps.add("Toast bread if desired.");
-
+        steps.add("Rinse rice thoroughly.");
+        steps.add("Combine salt and 2 cups of water in saucepan.");
+        steps.add("Add rice.");
+        steps.add("Stir and boil.");
+        steps.add("Cover and reduce heat to low for 18 mins.");
+        steps.add("Remove from heat and let stand for 15 mins.");
 
         String id = RecipeDatabase.push().getKey();
 

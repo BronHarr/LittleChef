@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +41,13 @@ public class RecipeListActivity extends AppCompatActivity {
         displayList = new ArrayList<>();
         listText = (TextView) findViewById(R.id.listText);
 
+        listRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int i, long l){
+                Toast.makeText(RecipeListActivity.this, displayList.get(i), Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     @Override
@@ -62,6 +73,13 @@ public class RecipeListActivity extends AppCompatActivity {
                 listRecipes.setAdapter(adapter);
             }
 
+//            listRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> adapter, View view, int i, long l){
+//
+//                }
+//            });
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -69,5 +87,11 @@ public class RecipeListActivity extends AppCompatActivity {
         });
 
     }
+
+
+//    @Override
+//    protected void onListItemClick(ListView list, View view, int position, long id) {
+//        super.onListItemClicked(list, view, position, id);
+//    }
 
 }
