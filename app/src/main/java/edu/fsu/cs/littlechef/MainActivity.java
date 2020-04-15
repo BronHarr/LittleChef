@@ -25,6 +25,7 @@ public class    MainActivity extends FragmentActivity {
     DatabaseReference RecipeDatabase;
     DatabaseReference IngredientsDatabase;
     DatabaseReference StepsDatabase;
+    Recipes recipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class    MainActivity extends FragmentActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
-        RecipeViewFragment frag = new RecipeViewFragment();
+        LoginFragment frag = new LoginFragment();
         ft.add(R.id.Frag_container, frag);
         ft.commit();
 
@@ -85,5 +86,18 @@ public class    MainActivity extends FragmentActivity {
 
         Toast.makeText(this, "recipe added", Toast.LENGTH_LONG).show();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        RecipeViewFragment frag = new RecipeViewFragment();
+        //frag.setRecipe();
+
+        ft.replace(R.id.Frag_container, frag);
+        ft.commit();
     }
 }

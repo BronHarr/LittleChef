@@ -11,7 +11,6 @@
         android:id="@+id/RecipeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-black"
@@ -35,13 +34,13 @@
         android:layout_height="250dp"
         android:divider="@color/colorPrimary"
         android:dividerHeight="4dp"
-        android:entries="@array/ingredients" />
+        android:entries="@array/ingredients" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RecipeText"
-        android:text="@string/recipe"
-        android:layout_marginTop="30dp"/>
+    </ListView>
+
+    <ListView
+        android:id="@+id/stepsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

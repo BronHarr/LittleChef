@@ -14,13 +14,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RecipeViewFragment extends Fragment {
-    String[] testlist;
+
+    private Recipes recipe;
 
     public RecipeViewFragment() {
         // Required empty public constructor
@@ -33,9 +37,24 @@ public class RecipeViewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_recipe_view, container, false);
 
-        ArrayAdapter<String> adapter;
-         testlist = getResources().getStringArray(R.array.ingredients);
-         ListView Ingredient = (ListView) view.findViewById(R.id.foodlist);
+        TextView recTitle = view.findViewById(R.id.RecipeTitle);
+        recTitle.setText(recipe.getRecipeName());
+
+        ArrayAdapter<String> adapter1;
+        ArrayAdapter<String> adapter2;
+
+        List<String> ingredients = recipe.getIngredients();
+        List<String> steps = recipe.getSteps();
+
+        ListView Ingredient = (ListView) view.findViewById(R.id.foodlist);
+        ListView Steps = view.findViewById(R.id.stepsList);
+
+        adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, ingredients );
+        Ingredient.setAdapter(adapter1);
+
+        adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, steps);
+        Steps.setAdapter(adapter2);
+
         Ingredient.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -51,11 +70,11 @@ public class RecipeViewFragment extends Fragment {
         });
 
 
-         adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, testlist);
-         Ingredient.setAdapter(adapter);
-
 
         return view;
+    }
+    public void setRecipe(Recipes r){
+        this.recipe = r;
     }
 
 }
