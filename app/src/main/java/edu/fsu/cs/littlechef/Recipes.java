@@ -21,6 +21,26 @@ public class Recipes {
         this.steps = new ArrayList<>(steps);
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
+    }
+
+    public void setTimeTaken(int timeTaken) {
+        this.timeTaken = timeTaken;
+    }
+
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setSteps(List<String> steps) {
+        this.steps = steps;
+    }
+
     public List<String> getIngredients() {
         return ingredients;
     }
