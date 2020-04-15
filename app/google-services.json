@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "706220829997",
+    "firebase_url": "https://littlechef-31200.firebaseio.com",
+    "project_id": "littlechef-31200",
+    "storage_bucket": "littlechef-31200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706220829997:android:e6f00e70ba93beaee7f7a4",
+        "android_client_info": {
+          "package_name": "edu.fsu.cs.littlechef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706220829997-skb3gn28paodicc3qrjmc3vq8sggmv2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.fsu.cs.littlechef",
+            "certificate_hash": "2f96f3b4ce337a8a9dbaf7624a3c9f38524a3686"
+          }
+        },
+        {
+          "client_id": "706220829997-l2is2npunr5hcap79efm22nbf7n1q1ot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxtUZfZUbpCq5cRNgaprMVtzSnBCEN7hY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706220829997-l2is2npunr5hcap79efm22nbf7n1q1ot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
