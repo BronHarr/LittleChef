@@ -1,22 +1,19 @@
-package com.example.recipe;
+package edu.fsu.cs.littlechef;
 
-import android.content.ContentValues;
-import android.content.Context;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Fragment;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import edu.fsu.cs.littlechef.R;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class AddRecipeFragment extends Fragment{
-
-    private OnRegisterFragmentInteractionListener mListener;
+public class AddRecipeFragment extends Fragment {
 
     private View mRootView;
 
@@ -35,15 +32,10 @@ public class AddRecipeFragment extends Fragment{
         // TODO: Add More Specific Error Messaged To Prompt User i.e. Must Have Times Greater Than 0
 
         final EditText RecipeName = mRootView.findViewById(R.id.name_input);
-
         final EditText PrepTime = mRootView.findViewById(R.id.prep_time_input);
-
         final EditText CookTime = mRootView.findViewById(R.id.cook_time_input);
-
         final EditText Servings = mRootView.findViewById(R.id.servings_input);
-
         final EditText Ingredients = mRootView.findViewById(R.id.Ingredients_Input);
-
         final EditText Steps = mRootView.findViewById(R.id.Steps_Input);
 
 
@@ -51,7 +43,7 @@ public class AddRecipeFragment extends Fragment{
         CancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Will Return To Main Fragment Once Integrated
+                //((MainActivity)getActivity()).returnToMain();
             }
         });
 
@@ -67,11 +59,19 @@ public class AddRecipeFragment extends Fragment{
 
                 if (!(PrepTime.getText().toString().length() > 0)|| Integer.valueOf(PrepTime.getText().toString()) == 0)
                 {
+                    if (Integer.valueOf(PrepTime.getText().toString()) == 0) {
+                        Toast.makeText(getActivity(), "Please Enter Prep. Time Above 0", Toast.LENGTH_SHORT).show();
+                    }
+
                     Error = true;
                 }
 
                 if (!(CookTime.getText().toString().length() > 0)|| Integer.valueOf(CookTime.getText().toString()) == 0)
                 {
+                    if (Integer.valueOf(PrepTime.getText().toString()) == 0) {
+                        Toast.makeText(getActivity(), "Please Enter Cook Time Above 0", Toast.LENGTH_SHORT).show();
+                    }
+
                     Error = true;
                 }
 
@@ -96,37 +96,45 @@ public class AddRecipeFragment extends Fragment{
                 }
                 else
                 {
-                    Toast.makeText(getActivity(), "Form Successfully Filled Out", Toast.LENGTH_SHORT).show();
+                    String recipeName = RecipeName.getText().toString();
 
-                    // TODO Here: Add Info To A ContentValues (After Database Fields Finalized
-                    // TODO 2: Parse Info Since It Probably Will Need To Be Edited For Database Entry
+                    Integer prepTime = Integer.valueOf(PrepTime.getText().toString());
+
+                    Integer cookTime = Integer.valueOf(CookTime.getText().toString());
+
+                    String ingredients[] = Ingredients.getText().toString().split("\\r?\\n");
+
+                    List<String> ingredientsForDatabase = new ArrayList<String>();
+                    for (int i = 0; i < ingredients.length; i++)
+                    {
+                        ingredientsForDatabase.add(ingredients[i]);
+                    }
+
+                    String steps[] = Steps.getText().toString().split("\\r?\\n");
+                    List<String> stepsForDatabase = new ArrayList<String>();
+                    for (int i = 0; i < steps.length; i++)
+                    {
+                        stepsForDatabase.add(steps[i]);
+                    }
+
+                    //String id = RecipeDatabase.push().getKey();
+
+                    // Recipes recipe = new Recipes(id, recipeName, prepTime + cookTime, ingredientsForDatabase, stepsForDatabase);
+
+                    //RecipeDatabase.child(id).setValue(recipe);
+
+                    Toast.makeText(getActivity(), "Recipe Added", Toast.LENGTH_SHORT).show();
+
+                    // TODO Here: *Actually Add Info To FireBase Database
+
+                    //Return To MainActivity
+                    //(MainActivity)getActivity()).returnToMain();
                 }
             }
         });
 
 
         return mRootView;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnRegisterFragmentInteractionListener) {
-            mListener = (OnRegisterFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement AddRecipeFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    public interface OnRegisterFragmentInteractionListener {
-        void onSubmit(ContentValues values);
     }
 
 
