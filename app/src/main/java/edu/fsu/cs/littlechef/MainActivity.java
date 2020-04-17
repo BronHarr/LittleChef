@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,6 +27,7 @@ public class    MainActivity extends FragmentActivity {
     DatabaseReference IngredientsDatabase;
     DatabaseReference StepsDatabase;
     Recipes recipe;
+    int LIST_ACTIVITY_RESULT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +52,7 @@ public class    MainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, LIST_ACTIVITY_RESULT);
             }
         });
 
@@ -89,15 +91,18 @@ public class    MainActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        RecipeViewFragment frag = new RecipeViewFragment();
-        //frag.setRecipe();
+        if (requestCode == LIST_ACTIVITY_RESULT) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            RecipeViewFragment frag = new RecipeViewFragment();
+            //TO-DO: grab recipe object from result Intent extras,
+            //frag.setRecipe(Recipes r);
 
-        ft.replace(R.id.Frag_container, frag);
-        ft.commit();
+            ft.replace(R.id.Frag_container, frag);
+            ft.commit();
+        }
     }
 }
