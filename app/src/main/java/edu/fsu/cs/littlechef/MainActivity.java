@@ -66,6 +66,7 @@ public class    MainActivity extends FragmentActivity {
 
 
     private void addRecipe() {
+        /*
         String name = "Perfect Pot of Rice";
         int time = 45;
         List<String> ingredients = new ArrayList<String>();
@@ -87,7 +88,14 @@ public class    MainActivity extends FragmentActivity {
         RecipeDatabase.child(id).setValue(recipe1);
 
         Toast.makeText(this, "recipe added", Toast.LENGTH_LONG).show();
+         */
 
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        AddRecipeFragment frag = new AddRecipeFragment();
+
+        ft.replace(R.id.Frag_container, frag);
+        ft.commit();
     }
 
     @Override
