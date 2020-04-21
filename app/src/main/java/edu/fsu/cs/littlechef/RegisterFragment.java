@@ -53,6 +53,7 @@ public class RegisterFragment extends Fragment {
         editTextPassword = rootview.findViewById(R.id.password1);
         confirmPassword = rootview.findViewById(R.id.confirm);
         progressDialog = new ProgressDialog(getActivity());
+        firebaseAuth = FirebaseAuth.getInstance();
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +82,8 @@ public class RegisterFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(getActivity(), "User Registered", Toast.LENGTH_SHORT).show();
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    Fragment mFrag = new LoginFragment();
-                    ft.replace(R.id.Frag_container, mFrag);
-                    ft.commit();
-
+                    Intent intent = new Intent(getActivity(), RecipeListActivity.class);
+                    startActivity(intent);
                 }else{
                     Toast.makeText(getActivity(), "User not registered", Toast.LENGTH_SHORT).show();
                 }

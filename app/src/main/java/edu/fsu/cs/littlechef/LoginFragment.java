@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -52,6 +53,8 @@ public class LoginFragment extends Fragment {
         register_button = rootView.findViewById(R.id.button);
         email = rootView.findViewById(R.id.email);
         pass = rootView.findViewById(R.id.password);
+        mAuth = FirebaseAuth.getInstance();
+
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +90,10 @@ public class LoginFragment extends Fragment {
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(getActivity(), RecipeListActivity.class);
                     startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getActivity(), "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT);
+
                 }
             }
         });
