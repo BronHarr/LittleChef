@@ -79,6 +79,7 @@ public class AddRecipeFragment extends Fragment {
                 if (url.getText().toString().contains("allrecipes.com") && validURL(url.getText().toString()))
                 {
                     getWebsite();
+                    Toast.makeText(getActivity(), "Recipe Added", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -86,6 +87,16 @@ public class AddRecipeFragment extends Fragment {
                 }
             }
         });
+
+        final  Button Cancel_Button2 = mRootView.findViewById(R.id.Cancel_Button2);
+        Cancel_Button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Manual_OR_Url.setVisibility(View.VISIBLE);
+                Url_Layout.setVisibility(View.INVISIBLE);
+            }
+        });
+
 
 
         // Stuff For Manual Entering Recipe
@@ -99,7 +110,8 @@ public class AddRecipeFragment extends Fragment {
         CancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //((MainActivity)getActivity()).returnToMain();
+                Manual_OR_Url.setVisibility(View.VISIBLE);
+                Manual_Layout.setVisibility(View.INVISIBLE);
             }
         });
 
