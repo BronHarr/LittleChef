@@ -48,6 +48,7 @@ public class RecipeListActivity extends AppCompatActivity {
         recipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
         displayList = new ArrayList<>();
         listText = (TextView) findViewById(R.id.listText);
+
         speaker = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -62,7 +63,7 @@ public class RecipeListActivity extends AppCompatActivity {
         listRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int i, long l){
-                Toast.makeText(RecipeListActivity.this, displayList.get(i), Toast.LENGTH_LONG).show();
+//                Toast.makeText(RecipeListActivity.this, displayList.get(i), Toast.LENGTH_LONG).show();
 
                 recipeDatabase.orderByChild("recipeName").equalTo(displayList.get(i)).addChildEventListener(new ChildEventListener() {
                     @Override
@@ -156,7 +157,7 @@ public class RecipeListActivity extends AppCompatActivity {
                     displayList.add(recipe1.getRecipeName());
                 }
 
-                Toast.makeText(RecipeListActivity.this, displayList.get(0), Toast.LENGTH_LONG).show();
+//                Toast.makeText(RecipeListActivity.this, displayList.get(0), Toast.LENGTH_LONG).show();
 
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(RecipeListActivity.this, R.layout.rowlayout, R.id.listText, displayList);
                 listRecipes.setAdapter(adapter);

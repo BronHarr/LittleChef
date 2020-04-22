@@ -37,10 +37,10 @@ public class    MainActivity extends FragmentActivity {
         addButton = (Button) findViewById(R.id.addButton);
         listButton = (Button) findViewById(R.id.listButton);
 
-        RecipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
-        IngredientsDatabase = FirebaseDatabase.getInstance().getReference("ingredients");
-        StepsDatabase = FirebaseDatabase.getInstance().getReference("steps");
-
+//        RecipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
+//        IngredientsDatabase = FirebaseDatabase.getInstance().getReference("ingredients");
+//        StepsDatabase = FirebaseDatabase.getInstance().getReference("steps");
+//
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
 
