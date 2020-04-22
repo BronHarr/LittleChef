@@ -11,9 +11,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/Manual_Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <TextView
                 android:id="@+id/recipe_name_text"
@@ -118,5 +120,50 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/URL_Layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteY="96dp">
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="AllRecipes.com URL"
+            android:inputType="textPersonName" />
+
+
+        <Button
+            android:id="@+id/Url_Submit_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Submit_Text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Manual_Or_Url"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/Enter_Recipe_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Enter_Recipe_Text" />
+
+        <Button
+            android:id="@+id/Enter_Url_Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Url_Recipe_Text" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

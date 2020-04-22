@@ -34,7 +34,7 @@ public class UrlActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         result2 = findViewById(R.id.result2);
 
-        getButton = findViewById(R.id.getButton);
+        getButton = findViewById(R.id.Url_Submit_Button);
 
         getButton.setOnClickListener(new View.OnClickListener() {
             @Override

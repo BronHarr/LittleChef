@@ -36,6 +36,9 @@
     <string name="Cancel_Text">Cancel</string>
     <string name="Submit_Text">Submit</string>
 
+    <string name="Enter_Recipe_Text">Enter Recipe</string>
+    <string name="Url_Recipe_Text">Enter URL </string>
+
     <string name="Email">Email</string>
     <string name="Password">Password</string>
     <string name="Confirm">Confirm Password</string>
