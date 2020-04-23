@@ -20,8 +20,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -34,6 +36,7 @@ public class RegisterFragment extends Fragment {
 
     private ProgressDialog progressDialog;
     private FirebaseAuth  firebaseAuth;
+    private FirebaseException firebaseException;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -61,15 +64,17 @@ public class RegisterFragment extends Fragment {
                     editTextEmail.setError("Must enter an email");
                 } else if (isEmpty(editTextPassword)) {
                     editTextPassword.setError("Must enter a password");
-                } else if (!editTextPassword.toString().equals(confirmPassword.toString())) {
+                } else if (!editTextPassword.getText().toString().equals(confirmPassword.getText().toString())) {
                     confirmPassword.setError("Passwords must match");
                 }
-                String useremail = editTextEmail.toString().trim();
-                String userpass = confirmPassword.toString().trim();
-                progressDialog.setMessage("Registering User...");
-                progressDialog.show();
+                else {
+                    String useremail = editTextEmail.getText().toString().trim();
+                    String userpass = confirmPassword.getText().toString().trim();
+                    progressDialog.setMessage("Registering User...");
+                    progressDialog.show();
 
-                RegisterUser(useremail, userpass);
+                    RegisterUser(useremail, userpass);
+                }
             }
         });
 
@@ -85,7 +90,8 @@ public class RegisterFragment extends Fragment {
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(getActivity(), "User not registered", Toast.LENGTH_SHORT).show();
+                    firebaseException = (FirebaseAuthException) task.getException();
+                    Toast.makeText(getActivity(), "User not registered: "+firebaseException.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
