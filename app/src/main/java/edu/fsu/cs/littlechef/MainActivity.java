@@ -28,6 +28,7 @@ public class    MainActivity extends FragmentActivity {
     DatabaseReference IngredientsDatabase;
     DatabaseReference StepsDatabase;
     Recipes recipe;
+    private boolean goodResult = false;
     int LIST_ACTIVITY_RESULT = 1;
 
     @Override
@@ -105,16 +106,26 @@ public class    MainActivity extends FragmentActivity {
 
         Log.i("hmm", "are we here");
 
-//        if (requestCode == LIST_ACTIVITY_RESULT) {
-////            Toast.makeText(getApplicationContext(), "we here?", Toast.LENGTH_LONG).show();
-//            FragmentManager fm = getSupportFragmentManager();
-//            FragmentTransaction ft = fm.beginTransaction();
-//            RecipeViewFragment frag = new RecipeViewFragment();
-//            //TO-DO: grab recipe object from result Intent extras,
-//            //frag.setRecipe(Recipes r);
-//
-//            ft.replace(R.id.Frag_container, frag);
-//            ft.commit();
-//        }
+        if (requestCode == LIST_ACTIVITY_RESULT) {
+            goodResult = true;
+
+            recipe = (Recipes) data.getExtras().getSerializable("RECIPE");
+//            Toast.makeText(getApplicationContext(), "we here?", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        if(goodResult){
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            RecipeViewFragment frag = new RecipeViewFragment();
+            frag.setRecipe(recipe);
+            ft.replace(R.id.Frag_container, frag);
+            ft.commit();
+        }
+
     }
 }
