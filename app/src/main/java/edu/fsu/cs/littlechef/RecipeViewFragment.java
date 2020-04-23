@@ -6,22 +6,28 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
 
 public class RecipeViewFragment extends Fragment {
 
     private Recipes recipe;
+    Button readRecipe;
+    TextToSpeech speaker;
+
 
     public RecipeViewFragment() {
         // Required empty public constructor
@@ -36,6 +42,29 @@ public class RecipeViewFragment extends Fragment {
 
         TextView recTitle = view.findViewById(R.id.RecipeTitle);
         recTitle.setText(recipe.getRecipeName());
+        readRecipe = view.findViewById(R.id.readRecipeButton);
+        speaker = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR)
+                {
+                    speaker.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
+
+
+        readRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speaker.setSpeechRate((float) 0.75);
+
+                speaker.speak("How to make:" + recipe.getRecipeName(), TextToSpeech.QUEUE_ADD, null);
+                speaker.speak("Cook time." + Integer.toString(recipe.getTimeTaken()) + "minutes", TextToSpeech.QUEUE_ADD, null);
+                speaker.speak("The ingredients are." + recipe.getIngredients(), TextToSpeech.QUEUE_ADD, null);
+                speaker.speak("The steps are." + recipe.getSteps(), TextToSpeech.QUEUE_ADD, null);
+            }
+        });
 
         ArrayAdapter<String> adapter1;
         ArrayAdapter<String> adapter2;

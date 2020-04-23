@@ -36,7 +36,6 @@ public class RecipeListActivity extends AppCompatActivity {
     ListView listRecipes;
     TextView listText;
     DatabaseReference recipeDatabase;
-    TextToSpeech speaker;
 
     List<String> displayList;
 //    List<Recipes> databaseList;
@@ -50,16 +49,6 @@ public class RecipeListActivity extends AppCompatActivity {
         recipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
         displayList = new ArrayList<>();
         listText = (TextView) findViewById(R.id.listText);
-
-        speaker = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR)
-                {
-                    speaker.setLanguage(Locale.ENGLISH);
-                }
-            }
-        });
 
         // ON LISTVIEW CLICK, CREATE RECIPE OBJECT FROM FIREBASE SNAPSHOT AND PASS IT TO RECIPEVIEW FRAGMENT
         listRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,12 +91,6 @@ public class RecipeListActivity extends AppCompatActivity {
                         }
                         tempRecipe.setSteps(tempStringList);
 
-                        speaker.setSpeechRate((float) 0.75);
-
-                        speaker.speak(tempRecipe.getRecipeName(), TextToSpeech.QUEUE_ADD, null);
-                        speaker.speak("Cook time." + Integer.toString(tempRecipe.getTimeTaken()) + "minutes", TextToSpeech.QUEUE_ADD, null);
-                        speaker.speak("The ingredients are." + tempRecipe.getIngredients(), TextToSpeech.QUEUE_ADD, null);
-                        speaker.speak("The steps are." + tempRecipe.getSteps(), TextToSpeech.QUEUE_ADD, null);
 
                         Log.i("PLEASE", tempRecipe.getId());
                         Log.i("PLEASE", tempRecipe.getRecipeName());
