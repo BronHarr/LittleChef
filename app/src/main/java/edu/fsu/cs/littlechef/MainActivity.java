@@ -122,7 +122,7 @@ public class    MainActivity extends FragmentActivity {
             ft.replace(R.id.Frag_container, frag);
             ft.commit();
         }
-        //if no good result was never changed, go back to recipe list
+        //if good result was never changed, go back to recipe list
         else{
             Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
             startActivityForResult(intent, LIST_ACTIVITY_RESULT);
