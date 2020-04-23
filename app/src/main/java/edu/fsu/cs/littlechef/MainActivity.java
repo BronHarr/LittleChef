@@ -29,6 +29,8 @@ public class    MainActivity extends FragmentActivity {
     DatabaseReference StepsDatabase;
     Recipes recipe;
     private boolean goodResult = false;
+    private boolean loggedIn = false;
+
     int LIST_ACTIVITY_RESULT = 1;
 
     @Override
@@ -42,13 +44,19 @@ public class    MainActivity extends FragmentActivity {
 //        RecipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
 //        IngredientsDatabase = FirebaseDatabase.getInstance().getReference("ingredients");
 //        StepsDatabase = FirebaseDatabase.getInstance().getReference("steps");
-//
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+        if(!loggedIn) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
 
-        LoginFragment frag = new LoginFragment();
-        ft.add(R.id.Frag_container, frag);
-        ft.commit();
+            LoginFragment frag = new LoginFragment();
+            ft.add(R.id.Frag_container, frag);
+            loggedIn = true;
+            ft.commit();
+        }
+        else{
+            Intent i = new Intent(MainActivity.this, RecipeListActivity.class);
+            startActivityForResult(i, LIST_ACTIVITY_RESULT);
+        }
 
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,11 +130,5 @@ public class    MainActivity extends FragmentActivity {
             ft.replace(R.id.Frag_container, frag);
             ft.commit();
         }
-        //if good result was never changed, go back to recipe list
-        else{
-            Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
-            startActivityForResult(intent, LIST_ACTIVITY_RESULT);
-        }
-
     }
 }

@@ -82,7 +82,7 @@ public class RegisterFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(getActivity(), "User Registered", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), RecipeListActivity.class);
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(getActivity(), "User not registered", Toast.LENGTH_SHORT).show();
