@@ -103,14 +103,10 @@ public class    MainActivity extends FragmentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        Log.i("hmm", "are we here");
-
+        //prep boolean and recipe for onPostResume() to change to recipe view fragment
         if (requestCode == LIST_ACTIVITY_RESULT) {
             goodResult = true;
-
             recipe = (Recipes) data.getExtras().getSerializable("RECIPE");
-//            Toast.makeText(getApplicationContext(), "we here?", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -125,6 +121,11 @@ public class    MainActivity extends FragmentActivity {
             frag.setRecipe(recipe);
             ft.replace(R.id.Frag_container, frag);
             ft.commit();
+        }
+        //if no good result was never changed, go back to recipe list
+        else{
+            Intent intent = new Intent(MainActivity.this, RecipeListActivity.class);
+            startActivityForResult(intent, LIST_ACTIVITY_RESULT);
         }
 
     }

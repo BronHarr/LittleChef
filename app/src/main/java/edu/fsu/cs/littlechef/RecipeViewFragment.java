@@ -19,9 +19,6 @@ import android.widget.TextView;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class RecipeViewFragment extends Fragment {
 
     private Recipes recipe;
@@ -43,6 +40,7 @@ public class RecipeViewFragment extends Fragment {
         ArrayAdapter<String> adapter1;
         ArrayAdapter<String> adapter2;
 
+        //populate views using recipe object
         List<String> ingredients = recipe.getIngredients();
         List<String> steps = recipe.getSteps();
 
@@ -55,6 +53,10 @@ public class RecipeViewFragment extends Fragment {
         adapter2 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, steps);
         Steps.setAdapter(adapter2);
 
+
+        //originally envisioned was that ingredient displays a side scrolling image that shows ingredient prep steps
+        //there was no easily accessible source of prepping images for ingredients and would have to be custom illustrated
+        //so for now every item click is an onion.
         Ingredient.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
