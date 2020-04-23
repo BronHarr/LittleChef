@@ -1,9 +1,10 @@
 package edu.fsu.cs.littlechef;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Recipes {
+public class Recipes implements Serializable {
 
     String id;
     String recipeName;

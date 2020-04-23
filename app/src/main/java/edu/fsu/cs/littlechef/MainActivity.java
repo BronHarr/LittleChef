@@ -4,6 +4,7 @@ package edu.fsu.cs.littlechef;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -102,15 +103,18 @@ public class    MainActivity extends FragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == LIST_ACTIVITY_RESULT) {
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            RecipeViewFragment frag = new RecipeViewFragment();
-            //TO-DO: grab recipe object from result Intent extras,
-            //frag.setRecipe(Recipes r);
+        Log.i("hmm", "are we here");
 
-            ft.replace(R.id.Frag_container, frag);
-            ft.commit();
-        }
+//        if (requestCode == LIST_ACTIVITY_RESULT) {
+////            Toast.makeText(getApplicationContext(), "we here?", Toast.LENGTH_LONG).show();
+//            FragmentManager fm = getSupportFragmentManager();
+//            FragmentTransaction ft = fm.beginTransaction();
+//            RecipeViewFragment frag = new RecipeViewFragment();
+//            //TO-DO: grab recipe object from result Intent extras,
+//            //frag.setRecipe(Recipes r);
+//
+//            ft.replace(R.id.Frag_container, frag);
+//            ft.commit();
+//        }
     }
 }

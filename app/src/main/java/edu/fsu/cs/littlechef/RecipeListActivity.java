@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -112,6 +114,13 @@ public class RecipeListActivity extends AppCompatActivity {
                         Log.i("PLEASE", Integer.toString(tempRecipe.getTimeTaken()));
                         Log.i("PLEASE", tempRecipe.getIngredients().get(1));
                         Log.i("PLEASE", tempRecipe.getSteps().get(0));
+
+                        Intent intent = new Intent(RecipeListActivity.this, MainActivity.class);
+                        intent.putExtra("RECIPE", tempRecipe);
+                        setResult(1, intent);
+//                        startActivityForResult(intent, 1);
+                        finish();
+
 
                     }
 
