@@ -459,7 +459,6 @@ public class AddRecipeFragment extends Fragment {
 
                     RecipeDatabase.child(id).setValue(recipe);
 
-                    //Toast.makeText(getActivity(), "Recipe Added", Toast.LENGTH_SHORT).show();
                 }
 
                 catch (IOException e) {
@@ -470,10 +469,7 @@ public class AddRecipeFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        /*
-                        result.setText(builder.toString());
-                        result2.setText(builder2.toString());
-                         */
+                        Toast.makeText(getActivity(), "Recipe Added", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
