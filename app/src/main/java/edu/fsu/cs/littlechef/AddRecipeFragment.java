@@ -125,16 +125,6 @@ public class AddRecipeFragment extends Fragment {
                     Error = true;
                 }
 
-                /*
-                if (!(PrepTime.getText().toString().length() > 0)|| Integer.valueOf(PrepTime.getText().toString()) == 0)
-                {
-                    if (Integer.valueOf(PrepTime.getText().toString()) == 0) {
-                        Toast.makeText(getActivity(), "Please Enter Prep. Time Above 0", Toast.LENGTH_SHORT).show();
-                    }
-
-                    Error = true;
-                }
-                 */
 
                 if ((CookTime.getText().toString().trim().isEmpty()))
                 {
@@ -144,13 +134,7 @@ public class AddRecipeFragment extends Fragment {
                 {
                     Error = true;
                 }
-
-                /*
-                if (!(Servings.getText().toString().length() > 0) || Integer.valueOf(Servings.getText().toString()) == 0)
-                {
-                    Error = true;
-                }
-                 */
+                
 
                 if (!(Ingredients.getText().toString().trim().length() > 0))
                 {
@@ -180,8 +164,6 @@ public class AddRecipeFragment extends Fragment {
                 else
                 {
                     String recipeName = RecipeName.getText().toString();
-
-                    //Integer prepTime = Integer.valueOf(PrepTime.getText().toString());
 
                     Integer cookTime = Integer.valueOf(CookTime.getText().toString());
 
@@ -216,10 +198,6 @@ public class AddRecipeFragment extends Fragment {
                     RecipeDatabase.child(id).setValue(recipe);
 
                     Toast.makeText(getActivity(), "Recipe Added", Toast.LENGTH_SHORT).show();
-
-
-                    //Return To MainActivity
-                    //(MainActivity)getActivity()).returnToMain();
                 }
             }
         });
