@@ -24,9 +24,6 @@ public class    MainActivity extends FragmentActivity {
 
     Button addButton;
     Button listButton;
-    DatabaseReference RecipeDatabase;
-    DatabaseReference IngredientsDatabase;
-    DatabaseReference StepsDatabase;
     Recipes recipe;
     private boolean goodResult = false;
     private boolean loggedIn = false;
@@ -41,9 +38,7 @@ public class    MainActivity extends FragmentActivity {
         addButton = (Button) findViewById(R.id.addButton);
         listButton = (Button) findViewById(R.id.listButton);
 
-//        RecipeDatabase = FirebaseDatabase.getInstance().getReference("recipes");
-//        IngredientsDatabase = FirebaseDatabase.getInstance().getReference("ingredients");
-//        StepsDatabase = FirebaseDatabase.getInstance().getReference("steps");
+        //check to see if user has logged in yet
         if(!loggedIn) {
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
@@ -76,29 +71,6 @@ public class    MainActivity extends FragmentActivity {
 
 
     private void addRecipe() {
-        /*
-        String name = "Perfect Pot of Rice";
-        int time = 45;
-        List<String> ingredients = new ArrayList<String>();
-        ingredients.add("1 cup of rice");
-        ingredients.add("Kosher Salt");
-
-        List<String> steps = new ArrayList<String>();
-        steps.add("Rinse rice thoroughly.");
-        steps.add("Combine salt and 2 cups of water in saucepan.");
-        steps.add("Add rice.");
-        steps.add("Stir and boil.");
-        steps.add("Cover and reduce heat to low for 18 mins.");
-        steps.add("Remove from heat and let stand for 15 mins.");
-
-        String id = RecipeDatabase.push().getKey();
-
-        Recipes recipe1 = new Recipes(id, name, time, ingredients, steps);
-
-        RecipeDatabase.child(id).setValue(recipe1);
-
-        Toast.makeText(this, "recipe added", Toast.LENGTH_LONG).show();
-         */
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -121,7 +93,7 @@ public class    MainActivity extends FragmentActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-
+        //if onActivityResult successfully ran, show recipe
         if(goodResult){
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();

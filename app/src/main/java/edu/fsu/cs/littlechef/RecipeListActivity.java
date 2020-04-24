@@ -54,7 +54,6 @@ public class RecipeListActivity extends AppCompatActivity {
         listRecipes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int i, long l){
-//                Toast.makeText(RecipeListActivity.this, displayList.get(i), Toast.LENGTH_LONG).show();
 
                 recipeDatabase.orderByChild("recipeName").equalTo(displayList.get(i)).addChildEventListener(new ChildEventListener() {
                     @Override
@@ -92,17 +91,12 @@ public class RecipeListActivity extends AppCompatActivity {
                         tempRecipe.setSteps(tempStringList);
 
 
-//                        Log.i("PLEASE", tempRecipe.getId());
-//                        Log.i("PLEASE", tempRecipe.getRecipeName());
-//                        Log.i("PLEASE", Integer.toString(tempRecipe.getTimeTaken()));
-//                        Log.i("PLEASE", tempRecipe.getIngredients().get(1));
-//                        Log.i("PLEASE", tempRecipe.getSteps().get(0));
+
 
                         //sending recipe object to new activity
                         Intent intent = new Intent(RecipeListActivity.this, MainActivity.class);
                         intent.putExtra("RECIPE", tempRecipe);
                         setResult(1, intent);
-//                        startActivityForResult(intent, 1);
                         finish();
 
 

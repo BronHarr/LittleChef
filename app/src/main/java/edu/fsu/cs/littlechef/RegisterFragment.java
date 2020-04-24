@@ -88,8 +88,8 @@ public class RegisterFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){ //if it works, go to login page.
                     Toast.makeText(getActivity(), "User Registered", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(getActivity(), RecipeListActivity.class);
+                    startActivityForResult(intent, 1);
                 }else{ // if it doesn't work, display error.
                     firebaseException = (FirebaseAuthException) task.getException();
                     Toast.makeText(getActivity(), "User not registered: "+firebaseException.getMessage(), Toast.LENGTH_SHORT).show();

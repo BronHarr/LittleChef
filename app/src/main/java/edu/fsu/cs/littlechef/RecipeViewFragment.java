@@ -106,6 +106,7 @@ public class RecipeViewFragment extends Fragment {
 
         return view;
     }
+    //public setter to grab recipe object in main
     public void setRecipe(Recipes r){
         this.recipe = r;
     }

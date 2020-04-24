@@ -90,7 +90,7 @@ public class LoginFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) { //if it works, go to next activity
                     Intent intent = new Intent(getActivity(), RecipeListActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent, 1);
                 }
                 else{ //if it doesn't, display error message
                     Toast.makeText(getActivity(), "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT);
