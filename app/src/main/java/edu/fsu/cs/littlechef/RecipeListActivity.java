@@ -91,13 +91,6 @@ public class RecipeListActivity extends AppCompatActivity {
                         }
                         tempRecipe.setSteps(tempStringList);
 
-
-                        Log.i("PLEASE", tempRecipe.getId());
-                        Log.i("PLEASE", tempRecipe.getRecipeName());
-                        Log.i("PLEASE", Integer.toString(tempRecipe.getTimeTaken()));
-                        Log.i("PLEASE", tempRecipe.getIngredients().get(1));
-                        Log.i("PLEASE", tempRecipe.getSteps().get(0));
-
                         Intent intent = new Intent(RecipeListActivity.this, MainActivity.class);
                         intent.putExtra("RECIPE", tempRecipe);
                         setResult(1, intent);

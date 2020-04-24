@@ -43,6 +43,8 @@ public class RecipeViewFragment extends Fragment {
         TextView recTitle = view.findViewById(R.id.RecipeTitle);
         recTitle.setText(recipe.getRecipeName());
         readRecipe = view.findViewById(R.id.readRecipeButton);
+
+        //create text to speech button
         speaker = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -53,7 +55,7 @@ public class RecipeViewFragment extends Fragment {
             }
         });
 
-
+        //when button is clicked, recipe is read
         readRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
