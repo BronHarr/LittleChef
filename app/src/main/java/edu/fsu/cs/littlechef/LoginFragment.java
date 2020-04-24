@@ -71,6 +71,7 @@ public class LoginFragment extends Fragment {
                 LoginUser(emailId, password);
             }
         });
+        // go to register user on click
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,16 +83,16 @@ public class LoginFragment extends Fragment {
         });
         return rootView;
     }
-
+    //function to login user
     private void LoginUser(String mail, String pass) {
         mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
+                if (task.isSuccessful()) { //if it works, go to next activity
                     Intent intent = new Intent(getActivity(), RecipeListActivity.class);
                     startActivity(intent);
                 }
-                else{
+                else{ //if it doesn't, display error message
                     Toast.makeText(getActivity(), "Error : " + task.getException().getMessage(), Toast.LENGTH_SHORT);
 
                 }

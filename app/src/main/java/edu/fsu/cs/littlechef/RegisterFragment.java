@@ -60,17 +60,17 @@ public class RegisterFragment extends Fragment {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isEmpty(editTextEmail)) {
+                if (isEmpty(editTextEmail)) { //if email is empty, display error
                     editTextEmail.setError("Must enter an email");
-                } else if (isEmpty(editTextPassword)) {
+                } else if (isEmpty(editTextPassword)) { //if password is empty, display error
                     editTextPassword.setError("Must enter a password");
                 } else if (!editTextPassword.getText().toString().equals(confirmPassword.getText().toString())) {
-                    confirmPassword.setError("Passwords must match");
+                    confirmPassword.setError("Passwords must match"); //display error if passwords don't match
                 }
                 else {
                     String useremail = editTextEmail.getText().toString().trim();
                     String userpass = confirmPassword.getText().toString().trim();
-                    progressDialog.setMessage("Registering User...");
+                    progressDialog.setMessage("Registering User..."); //show progress bar while user registers
                     progressDialog.show();
 
                     RegisterUser(useremail, userpass);
@@ -81,15 +81,16 @@ public class RegisterFragment extends Fragment {
         return rootview;
     }
 
+    // Function to register the user to Firebase
     private void RegisterUser(String email, String password){
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()){ //if it works, go to login page.
                     Toast.makeText(getActivity(), "User Registered", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
-                }else{
+                }else{ // if it doesn't work, display error.
                     firebaseException = (FirebaseAuthException) task.getException();
                     Toast.makeText(getActivity(), "User not registered: "+firebaseException.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -97,7 +98,7 @@ public class RegisterFragment extends Fragment {
         });
     }
 
-    private boolean isEmpty(EditText text){
+    private boolean isEmpty(EditText text){  //check if edit-texts are empty.
         CharSequence string = text.getText().toString();
         return TextUtils.isEmpty(string);
     }
